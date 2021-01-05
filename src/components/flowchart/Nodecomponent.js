@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
 import ReactFlow, { addEdge, Background, Controls, MiniMap } from 'react-flow-renderer';
 
-
-
 // to fill initial elements  
 const initialElements = [
-    { id: '1', type: 'input', data: { label: 'Actions' }, position: { x: 150, y: 5 } }
+    { id: '1', type: 'input', data: { label: 'Actions' }, position: { x: 300, y: 180 } }
 
 ]
 
-// to calculate the entire height & width of node
-const onLoad = (reactFlowInstance) => {
-    reactFlowInstance.fitView();
-}
-
-
 
 const MyFlow = () => {
+
 
     // To Add a New Node 
     const [elements, setElements] = useState(initialElements);
@@ -35,11 +28,13 @@ const MyFlow = () => {
     // To connect between two nodes
     const onConnect = (params) => setElements(e => addEdge(params, e));
 
+
+
+
     return (
-        <>
+        <div>
             <ReactFlow
                 elements={elements}
-                onLoad={onLoad}
                 style={{ width: '100%', height: '85vh' }}
                 onConnect={onConnect}
                 connectionLineStyle={{ stroke: '#ddd', strokeWidth: 2 }}
@@ -55,7 +50,7 @@ const MyFlow = () => {
                 {/*used to color distinguishing the object  */}
                 <MiniMap
                     nodeColor={n => {
-                        if (n.type == 'input') return 'blue';
+                        if (n.type === 'input') return 'blue';
                         return '#FFCC00'
                     }} />
 
@@ -71,7 +66,7 @@ const MyFlow = () => {
                 <button type="button" onClick={addNode}>Add Node</button>
             </div>
 
-        </>
+        </div>
     )
 }
 
