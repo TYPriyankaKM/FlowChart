@@ -16,4 +16,4 @@ Clone down this repository. You will need node and npm installed globally on you
 ```npm start```
 
 ### Live Demo
-[FlowChart](flow-chart-ty.netlify.app)
+[FlowChart](https://flow-chart-ty.netlify.app)
